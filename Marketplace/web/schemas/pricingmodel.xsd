@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	version="0.1"
+	targetNamespace="http://realtime.datamarketplace.com/schemas/pricing"
+	xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing"
+	elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+			Realtime Data Marketplace
+			Copyright 2014, Tien-Dung Cao, Tran-Vu Pham, Quang-Hieu Vu, Hong-Linh Truong
+
+			Licensed under the Apache License, Version 2.0 (the "License");
+			you may not use this file except in compliance with the License.
+			You may obtain a copy of the License at
+			http://www.apache.org/licenses/LICENSE-2.0
+
+			Unless required by applicable law or agreed to in writing, software
+			distributed under the License is distributed on an "AS IS" BASIS,
+			WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+			See the License for the specific language governing permissions and
+			limitations under the License.
+		</xs:documentation>
+	</xs:annotation>   
+		
+	<xs:element name="APIPrice" type="marketpm:PaymentOnAPI"/>    
+	<xs:element name="SizePrice" type="marketpm:PaymentOnSize"/>
+	<xs:element name="PlanPrice" type="marketpm:PaymentOnPlan"/>
+	<xs:element name="SubscriptionPrice" type="marketpm:PaymentOnSubscription"/>
+	<xs:element name="UnitPrice" type="marketpm:PaymentOnUnit"/>
+    
+	<xs:complexType name="PaymentBasic">
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="price" type="xs:double" minOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="name"/>
+	</xs:complexType>
+	
+	<xs:complexType name="PaymentOnAPI">
+		<xs:complexContent>
+			<xs:extension base="marketpm:PaymentBasic">
+				<xs:sequence>
+					<xs:element name="numberObject" type="xs:integer"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="PaymentOnSize">
+		<xs:complexContent>
+			<xs:extension base="marketpm:PaymentBasic">
+				<xs:sequence>
+					<xs:element name="dataSize" type="xs:integer"/>
+                                        <xs:element name="dataUnit" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="PaymentOnPlan">
+		<xs:complexContent>
+			<xs:extension base="marketpm:PaymentBasic">
+				<xs:sequence>
+					<xs:element name="timeDuration" type="xs:interger"/>
+					<xs:element name="timeUnit" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="PaymentOnSubscription">
+		<xs:complexContent>
+			<xs:extension base="marketpm:PaymentBasic">
+				<xs:sequence>
+					<xs:element name="timeDuration" type="xs:integer"/>
+                                        <xs:element name="timeUnit" type="xs:string"/>
+					<xs:element name="timeGroup" type="marketpm:ImportantMoment" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="PaymentOnUnit">
+		<xs:complexContent>
+			<xs:extension base="marketpm:PaymentBasic">
+				<xs:sequence>
+					<xs:element name="streamGroup" type="marketpm:DataUnit" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+        <xs:complexType name="DataUnit">
+		<xs:sequence>
+			<xs:element name="stream" type="marketpm:StreamData" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+        </xs:complexType>
+
+	<xs:complexType name="StreamData">
+		<xs:sequence>
+			<xs:element name="streamRef" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dataSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="dataUnit" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="from" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="to" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="repeat" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ImportantMoment">
+		<xs:sequence>
+			<xs:element name="priceExtra" type="xs:integer"/>
+			<xs:element name="from" type="xs:dateTime"/>
+			<xs:element name="to" type="xs:dateTime"/>
+			<xs:element name="repeat" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

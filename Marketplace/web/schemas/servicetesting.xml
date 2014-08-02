@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<market:marketcatalog xmlns:market="http://realtime.datamarketplace.com/schemas/market" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="./market.xsd">
+	<market:service>
+		<market:servicename>Service testing</market:servicename>
+		<market:provider>Marketplace developer</market:provider>
+		<market:servicedescription>This service provider a list of stream use to test the market platform.</market:servicedescription>
+		<market:servicecost type="application/xml">
+			<marketpm:SizePrice xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="./pricingmodel.xsd">
+				<marketpm:description>Pricing model based on data size</marketpm:description>
+				<marketpm:price>100</marketpm:price>
+                                <marketpm:dataSize>100</marketpm:dataSize>
+				<marketpm:dataUnit>Mb</marketpm:dataUnit>
+			</marketpm:SizePrice>
+			<marketpm:APIPrice xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="./pricingmodel.xsd">
+				<marketpm:description>Pricing model based on API handle</marketpm:description>
+				<marketpm:price>10</marketpm:price>
+				<marketpm:numberObject>10000</marketpm:numberObject>
+			</marketpm:APIPrice>
+			<marketpm:PlanPrice xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="./pricingmodel.xsd">
+				<marketpm:description>Pricing model based on time plan</marketpm:description>
+				<marketpm:price>20</marketpm:price>
+				<marketpm:timeDuration>1</marketpm:timeDuration>
+				<marketpm:timeUnit>Day</marketpm:timeUnit>
+			</marketpm:PlanPrice>
+			<marketpm:SubscriptionPrice xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="./pricingmodel.xsd">
+				<marketpm:description>Pricing model based on subscription</marketpm:description>
+				<marketpm:price>10</marketpm:price>
+				<marketpm:timeDuration>1</marketpm:timeDuration>
+                                <marketpm:timeUnit>Hour</marketpm:timeUnit>
+				<marketpm:timeGroup>
+					<marketpm:priceExtra>50</marketpm:priceExtra>
+					<marketpm:from>2014-04-10T12:00:00</marketpm:from>
+					<marketpm:to>2014-04-31T12:00:00</marketpm:to>
+					<marketpm:repeat>yes</marketpm:repeat>
+				</marketpm:timeGroup>
+			</marketpm:SubscriptionPrice>
+                        <!-- current version do not support this plan-->
+			<marketpm:UnitPrice xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://realtime.datamarketplace.com/schemas/pricing pricingmodel.xsd">
+				<marketpm:description>Pricing model based on data unit</marketpm:description>
+				<marketpm:price>498.88</marketpm:price>
+				<marketpm:streamGroup>
+                                        <marketpm:stream>
+                                            <marketpm:streamRef>ref#1</marketpm:streamRef>
+                                            <!-- you can choose either data size or time duration -->
+                                            <marketpm:dataSize>10</marketpm:dataSize>
+                                            <marketpm:dataUnit>Gb</marketpm:dataUnit>
+                                            <marketpm:from>2013-10-10T12:00:00</marketpm:from>
+                                            <marketpm:to>2013-10-31T12:00:00</marketpm:to>
+                                            <marketpm:repeat>no</marketpm:repeat>
+                                        </marketpm:stream>
+				</marketpm:streamGroup>
+			</marketpm:UnitPrice>
+		</market:servicecost>
+		<market:servicecontract type="application/xml">
+			<marketcm:UserCentricContract xmlns:marketcm="http://realtime.datamarketplace.com/schemas/contract" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="./contractmodel.xsd">
+				<marketcm:description>Contract model focusing on contraints at provider side</marketcm:description>
+				<marketcm:completeness>1.0</marketcm:completeness>
+				<marketcm:reliability>1.0</marketcm:reliability>
+				<marketcm:accuracy>1.0</marketcm:accuracy>
+				<marketcm:consistency>1.0</marketcm:consistency>
+				<marketcm:interpretability>1.0</marketcm:interpretability>
+				<marketcm:indemnification>yes</marketcm:indemnification>
+				<marketcm:limitation>no</marketcm:limitation>
+			</marketcm:UserCentricContract>
+		</market:servicecontract>
+		<market:servicecategory label="" scheme="http://tempuri.org/daas" term="DaaS"/>
+		<market:qos type="N/A" src="http://tempuri.org/qos"/>
+		<market:servicedatabus>tcp://128.130.172.215:1883</market:servicedatabus>
+		
+		<market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 1</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+    <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 2</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+		<market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 3</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 4</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 5</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 6</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 7</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 8</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 9</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 10</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 11</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 12</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 13</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 14</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 15</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 16</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 17</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 18</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 19</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 20</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 21</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 22</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 23</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 24</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 25</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 26</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 27</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 28</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 29</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 30</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 31</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 32</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 33</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 34</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 35</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 36</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 37</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 38</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 39</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 40</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 41</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 42</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 43</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 44</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 45</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 46</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 47</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 48</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream><market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 49</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<!--market:streamRef>ref#1</market:streamRef-->
+			<market:device type="simulated sensor" src="http://tempuri.org/simulatedsensor"/>
+			<market:datadescription>Simulated sensor 50</market:datadescription>
+			<market:datatype type="text/csv" src="http://tempuri.org/text/csv"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>5</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+                </market:datastream>
+                <market:datastream>
+			<market:device type="video recoder" src="http://tempuri.org/videorecoder"/>
+			<market:datadescription>Testing camera 1</market:datadescription>
+			<market:datatype type="video/MPEG" src="http://tempuri.org/video/mpeg"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>0</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+	    </market:datastream>
+            <market:datastream>
+			<market:device type="video recoder" src="http://tempuri.org/videorecoder"/>
+			<market:datadescription>Testing camera 2</market:datadescription>
+			<market:datatype type="video/MPEG" src="http://tempuri.org/video/mpeg"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>0</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+	    </market:datastream>
+            <market:datastream>
+			<market:device type="video recoder" src="http://tempuri.org/videorecoder"/>
+			<market:datadescription>Testing camera 3</market:datadescription>
+			<market:datatype type="video/MPEG" src="http://tempuri.org/video/mpeg"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>0</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+	    </market:datastream>
+            <market:datastream>
+			<market:device type="video recoder" src="http://tempuri.org/videorecoder"/>
+			<market:datadescription>Testing camera 4</market:datadescription>
+			<market:datatype type="video/MPEG" src="http://tempuri.org/video/mpeg"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>0</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+	    </market:datastream>
+            <market:datastream>
+			<market:device type="video recoder" src="http://tempuri.org/videorecoder"/>
+			<market:datadescription>Testing camera 5</market:datadescription>
+			<market:datatype type="video/MPEG" src="http://tempuri.org/video/mpeg"/>
+			<market:pubsubdatabus>tcp://128.130.172.215:1883</market:pubsubdatabus>
+			<market:timeseries>0</market:timeseries>
+			<market:dataorigin>HCM, VN</market:dataorigin>
+			<market:datarate>360</market:datarate>
+			<market:latency>10</market:latency>
+	    </market:datastream>
+	</market:service>	
+</market:marketcatalog>

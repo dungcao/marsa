@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://109.231.124.57:8080/ws/Pricing?wsdl" uri="src/conf/xml-resources/web-services/Pricing/wsdl/109.231.124.57_8080/ws/Pricing.wsdl"/>
+    <system systemId="http://109.231.124.57:8080/ws/Pricing?xsd=1" uri="src/conf/xml-resources/web-services/Pricing/wsdl/109.231.124.57_8080/ws/Pricing.xsd_1.xsd"/>
+</catalog>

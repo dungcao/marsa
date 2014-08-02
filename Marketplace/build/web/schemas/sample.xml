@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<market:marketcatalog xmlns:market="http://realtime.datamarketplace.com/schemas/market" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://realtime.datamarketplace.com/schemas/market market.xsd">
+	<market:service>
+		<market:servicename>Azure Datamarketplace</market:servicename>
+		<market:provider>Microsoft</market:provider>
+		<market:servicedescription>Microsoft data market place</market:servicedescription>
+		<market:servicecost type="application/xml">
+			<marketpm:SizePrice xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://realtime.datamarketplace.com/schemas/pricing pricingmodel.xsd">
+				<marketpm:description>Pricing model based on data size</marketpm:description>
+				<marketpm:price>298.88</marketpm:price>
+                                <marketpm:dataSize>100</marketpm:dataSize>
+				<marketpm:dataUnit>Mb</marketpm:dataUnit>
+			</marketpm:SizePrice>
+			<marketpm:APIPrice xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://realtime.datamarketplace.com/schemas/pricing pricingmodel.xsd">
+				<marketpm:description>Pricing model based on API handle</marketpm:description>
+				<marketpm:price>198.88</marketpm:price>
+				<marketpm:numberObject>90</marketpm:numberObject>
+			</marketpm:APIPrice>
+			<marketpm:PlanPrice xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://realtime.datamarketplace.com/schemas/pricing pricingmodel.xsd">
+				<marketpm:description>Pricing model based on time plan</marketpm:description>
+				<marketpm:price>398.88</marketpm:price>
+				<marketpm:timeDuration>1</marketpm:timeDuration>
+				<marketpm:timeUnit>Day</marketpm:timeUnit>
+			</marketpm:PlanPrice>
+			<marketpm:SubscriptionPrice xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://realtime.datamarketplace.com/schemas/pricing pricingmodel.xsd">
+				<marketpm:description>Pricing model based on subscription</marketpm:description>
+				<marketpm:price>98.88</marketpm:price>
+				<marketpm:timeDuration>1</marketpm:timeDuration>
+                                <marketpm:timeUnit>Week</marketpm:timeUnit>
+				<marketpm:timeGroup>
+					<marketpm:priceExtra>50</marketpm:priceExtra>
+					<marketpm:from>2013-10-10T12:00:00</marketpm:from>
+					<marketpm:to>2013-10-31T12:00:00</marketpm:to>
+					<marketpm:repeat>yes</marketpm:repeat>
+				</marketpm:timeGroup>
+			</marketpm:SubscriptionPrice>
+                        <!-- current version do not support this plan-->
+			<marketpm:UnitPrice xmlns:marketpm="http://realtime.datamarketplace.com/schemas/pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://realtime.datamarketplace.com/schemas/pricing pricingmodel.xsd">
+				<marketpm:description>Pricing model based on data unit</marketpm:description>
+				<marketpm:price>498.88</marketpm:price>
+				<marketpm:streamGroup>
+                                        <marketpm:stream>
+                                            <marketpm:streamRef>ref#1</marketpm:streamRef>
+                                            <!-- you can choose either data size or time duration -->
+                                            <marketpm:dataSize>10</marketpm:dataSize>
+                                            <marketpm:dataUnit>Gb</marketpm:dataUnit>
+                                            <marketpm:from>2013-10-10T12:00:00</marketpm:from>
+                                            <marketpm:to>2013-10-31T12:00:00</marketpm:to>
+                                            <marketpm:repeat>no</marketpm:repeat>
+                                        </marketpm:stream>
+				</marketpm:streamGroup>
+			</marketpm:UnitPrice>
+		</market:servicecost>
+		<market:servicecontract type="application/xml">
+			<marketcm:UserCentricContract xmlns:marketcm="http://realtime.datamarketplace.com/schemas/contract" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://realtime.datamarketplace.com/schemas/contract contractmodel.xsd">
+				<marketcm:description>Contract model focusing on contraints at provider side</marketcm:description>
+				<marketcm:completeness>1.0</marketcm:completeness>
+				<marketcm:reliability>1.0</marketcm:reliability>
+				<marketcm:accuracy>1.0</marketcm:accuracy>
+				<marketcm:consistency>1.0</marketcm:consistency>
+				<marketcm:interpretability>1.0</marketcm:interpretability>
+				<marketcm:indemnification>yes</marketcm:indemnification>
+				<marketcm:limitation>no</marketcm:limitation>
+			</marketcm:UserCentricContract>
+		</market:servicecontract>
+		<market:servicecategory label="" scheme="http://tempuri.org/daas" term="DaaS"/>
+		<market:qos type="N/A" src="http://tempuri.org/qos"/>
+		<market:servicedatabus>tcp://iot.eclipse.org:1883</market:servicedatabus>
+		
+		<market:datastream>
+			<market:streamRef>ref#1</market:streamRef>
+			<market:device type="sensor" src="http://tempuri.org/sensor"/>
+			<market:datadescription>Microsoft data market place stream 1</market:datadescription>
+			<market:datatype type="image/jpg" src="http://tempuri.org/image/jpg"/>
+			<market:pubsubdatabus>tcp://iot.eclipse.org:1883</market:pubsubdatabus>
+			<market:timeseries>1</market:timeseries>
+			<market:dataorigin>US</market:dataorigin>
+			<market:datarate>1</market:datarate>
+			<market:latency>5</market:latency>
+	    </market:datastream>
+    
+		<market:datastream>
+			<market:device type="iPhone5S" src="http://tempuri.org/iphone/5s"/>
+			<market:datadescription>Microsoft data market place stream 2</market:datadescription>
+			<market:datatype type="text/JSON" src="http://tempuri.org/text/json"/>
+			<market:pubsubdatabus>tcp://iot.eclipse.org:1883</market:pubsubdatabus>
+			<market:timeseries>2</market:timeseries>
+			<market:dataorigin>EU</market:dataorigin>
+			<market:datarate>1</market:datarate>
+			<market:latency>10</market:latency>
+	    </market:datastream>
+	</market:service>	
+</market:marketcatalog>

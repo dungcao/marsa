@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://realtime.datamarketpla.com/schemas/market" uri="realtime.datamarketpla.com/schemas/market"/>
+    <system systemId="http://realtime.datamarketplace.com/schemas/market" uri="realtime.datamarketplace.com/schemas/market"/>
+    <system systemId="http://realtime.datamarketplace.com/schemas/con" uri="realtime.datamarketplace.com/schemas/con"/>
+    <system systemId="http://realtime.datamarketplace.com/schemas/contr" uri="realtime.datamarketplace.com/schemas/contr"/>
+    <system systemId="http://realtime.datamarketplace.com/schemas/pricing" uri="www.website-unavailable.com/.wc_EWJvGwpmBR1DGxZ0BBYBFBA__url_realtime.datamarketplace.com/schemas/pricing"/>
+    <system systemId="http://realtime.datamarketplace.com/schemas/contract" uri="realtime.datamarketplace.com/schemas/contract"/>
+</catalog>

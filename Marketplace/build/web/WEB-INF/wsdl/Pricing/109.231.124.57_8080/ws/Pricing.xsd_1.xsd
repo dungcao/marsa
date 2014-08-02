@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://realmarket.com/ws/pricing" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://realmarket.com/ws/pricing">
+
+<xs:element name="Create" type="tns:Create" />
+
+<xs:element name="CreateResponse" type="tns:CreateResponse" />
+
+<xs:element name="QueryAllVersion" type="tns:QueryAllVersion" />
+
+<xs:element name="QueryAllVersionResponse" type="tns:QueryAllVersionResponse" />
+
+<xs:element name="QueryByVersion" type="tns:QueryByVersion" />
+
+<xs:element name="QueryByVersionResponse" type="tns:QueryByVersionResponse" />
+
+<xs:element name="Update" type="tns:Update" />
+
+<xs:element name="UpdateResponse" type="tns:UpdateResponse" />
+
+<xs:complexType name="Update">
+<xs:sequence>
+<xs:element name="serviceId" type="xs:string" />
+<xs:element name="TimePlan" type="tns:timePlan" minOccurs="0" />
+<xs:element name="DataSize" type="tns:dataSize" minOccurs="0" />
+<xs:element name="APIHande" type="tns:apiHande" minOccurs="0" />
+<xs:element name="Subscription" type="tns:subscription" minOccurs="0" />
+<xs:element name="DataUnit" type="tns:dataUnit" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="timePlan">
+<xs:complexContent>
+<xs:extension base="tns:costbaseModel">
+<xs:sequence>
+<xs:element name="duration" type="xs:int" />
+<xs:element name="unit" type="xs:string" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="costbaseModel">
+<xs:sequence>
+<xs:element name="basicPrice" type="xs:float" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataSize">
+<xs:complexContent>
+<xs:extension base="tns:costbaseModel">
+<xs:sequence>
+<xs:element name="size" type="xs:int" />
+<xs:element name="unit" type="xs:string" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="apiHande">
+<xs:complexContent>
+<xs:extension base="tns:costbaseModel">
+<xs:sequence>
+<xs:element name="objNum" type="xs:int" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="subscription">
+<xs:complexContent>
+<xs:extension base="tns:costbaseModel">
+<xs:sequence>
+<xs:element name="duration" type="xs:int" />
+<xs:element name="importants" type="tns:period" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="unit" type="xs:string" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="period">
+<xs:sequence>
+<xs:element name="extraPrice" type="xs:float" />
+<xs:element name="repeat" type="tns:repeatBy" minOccurs="0" />
+<xs:element name="fValue" type="xs:string" minOccurs="0" />
+<xs:element name="tValue" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataUnit">
+<xs:complexContent>
+<xs:extension base="tns:costbaseModel">
+<xs:sequence>
+<xs:element name="streams" type="tns:stream" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="stream">
+<xs:sequence>
+<xs:element name="streamId" type="xs:string" />
+<xs:element name="unit" type="xs:string" />
+<xs:element name="value" type="xs:int" />
+<xs:element name="pType" type="tns:paymentType" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="UpdateResponse">
+<xs:sequence>
+<xs:element name="serviceId_version" type="xs:string" form="qualified" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Create">
+<xs:sequence>
+<xs:element name="TimePlan" type="tns:timePlan" minOccurs="0" />
+<xs:element name="DataSize" type="tns:dataSize" minOccurs="0" />
+<xs:element name="APIHande" type="tns:apiHande" minOccurs="0" />
+<xs:element name="Subscription" type="tns:subscription" minOccurs="0" />
+<xs:element name="DataUnit" type="tns:dataUnit" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CreateResponse">
+<xs:sequence>
+<xs:element name="serviceId" type="xs:string" form="qualified" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="QueryByVersion">
+<xs:sequence>
+<xs:element name="serviceId_version" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="QueryByVersionResponse">
+<xs:sequence>
+<xs:element name="resp" type="tns:queryResponse" form="qualified" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="queryResponse">
+<xs:sequence>
+<xs:element name="apihandle" type="tns:apiHande" minOccurs="0" />
+<xs:element name="datasize" type="tns:dataSize" minOccurs="0" />
+<xs:element name="dataunit" type="tns:dataUnit" minOccurs="0" />
+<xs:element name="subscription" type="tns:subscription" minOccurs="0" />
+<xs:element name="timeplan" type="tns:timePlan" minOccurs="0" />
+<xs:element name="updatedtime" type="xs:string" minOccurs="0" />
+<xs:element name="version" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="QueryAllVersion">
+<xs:sequence>
+<xs:element name="serviceId" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="QueryAllVersionResponse">
+<xs:sequence>
+<xs:element name="resp" type="tns:queryResponse" form="qualified" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="repeatBy">
+<xs:restriction base="xs:string">
+<xs:enumeration value="DAY" />
+<xs:enumeration value="WEEK" />
+<xs:enumeration value="MONTH" />
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="paymentType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="TIME_PLAN" />
+<xs:enumeration value="DATA_SIZE" />
+<xs:enumeration value="API_HANDLE" />
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

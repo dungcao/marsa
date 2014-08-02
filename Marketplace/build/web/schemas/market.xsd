@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	version="0.1"
+	targetNamespace="http://realmarket.com/schemas/market"
+	xmlns:market="http://realmarket.com/schemas/market"
+	elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+			Realtime Data Marketplace
+			Copyright 2014, Tien-Dung Cao, Tran-Vu Pham, Quang-Hieu Vu, Hong-Linh Truong
+
+			Licensed under the Apache License, Version 2.0 (the "License");
+			you may not use this file except in compliance with the License.
+			You may obtain a copy of the License at
+			http://www.apache.org/licenses/LICENSE-2.0
+
+			Unless required by applicable law or agreed to in writing, software
+			distributed under the License is distributed on an "AS IS" BASIS,
+			WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+			See the License for the specific language governing permissions and
+			limitations under the License.
+		</xs:documentation>
+	</xs:annotation>
+    
+	<xs:element name="marketcatalog" type="market:MarketCatalog"/>
+	<xs:complexType name="MarketCatalog">
+		<xs:sequence>
+			<xs:element name="service" type="market:MarketService" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MarketService">
+		<xs:sequence>
+                        <xs:element name="serviceuuid" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="servicename" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="provider" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="servicedescription" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="servicecost" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="servicecontractmodels" type="market:MarketContract" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="servicecategories" type="market:Category" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="qos" type="market:EntryContent" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="servicedatabus" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="datastream" type="market:MarketDataStream" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MarketDataStream">
+		<xs:sequence>
+			<xs:element name="streamuuid" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="device" type="market:EntryContent" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="datadescription" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="datacost" type="xs:string" minOccurs="0" maxOccurs="1"/> 
+			<xs:element name="datacontract" type="market:EntryContent" minOccurs="0" maxOccurs="1"/>   
+			<xs:element name="datatype" type="market:EntryContent" minOccurs="1" maxOccurs="1"/>   
+			<xs:element name="datacategory" type="market:EntryContent" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="streamdatabus" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="timeseries" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="uncertainly" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dataorigin" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="datarate" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="latency" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+        
+        <!-- contract model -->
+        <xs:complexType name="MarketContract">
+		<xs:sequence>
+			<xs:element name="contractmodel" type="market:EntryContent" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- this is used to describe data represented by an external model: rdf, xml, etc. -->
+	<xs:complexType name="EntryContent">
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="src" type="xs:anyURI"/>
+	</xs:complexType>
+
+	<!-- category -->
+	<xs:complexType name="Category">
+            <xs:sequence>
+		<xs:element name="category" type="market:EntryContent" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+	</xs:complexType>
+</xs:schema>

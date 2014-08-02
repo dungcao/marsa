@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="Authentication">
+      <implementation-class>api.market.databus.Authentication</implementation-class>
+    </service>
+    <service name="Broker">
+      <implementation-class>api.market.broker.Broker</implementation-class>
+    </service>
+    <service name="Pricing">
+      <implementation-class>pricing.models.Pricing</implementation-class>
+    </service>
+    <service name="PaymentAPI">
+      <implementation-class>api.market.databus.PaymentAPI</implementation-class>
+    </service>
+    <service name="QoSAPI">
+      <implementation-class>api.market.databus.QoSAPI</implementation-class>
+    </service>
+  </services>
+  <clients>
+  </clients>
+  <jsr109>false</jsr109>
+</jax-ws>

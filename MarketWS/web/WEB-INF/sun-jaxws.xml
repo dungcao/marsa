@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+  <endpoint implementation="api.market.databus.Authentication" name="Authentication" url-pattern="/Authentication"/>
+  <endpoint implementation="api.market.broker.Broker" name="Broker" url-pattern="/Broker"/>
+  <endpoint implementation="pricing.models.Pricing" name="Pricing" url-pattern="/Pricing"/>
+  <endpoint implementation="api.market.databus.PaymentAPI" name="PaymentAPI" url-pattern="/PaymentAPI"/>
+  <endpoint implementation="api.market.databus.QoSAPI" name="QoSAPI" url-pattern="/QoSAPI"/>
+</endpoints>
