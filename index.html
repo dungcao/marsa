@@ -29,36 +29,46 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Introduction</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>In page introduces RealMarket (REALtime Internet of Things data MARKETplace), a dynamic marketplace platform in the cloud where different stakeholders can sell and buy dynamic near-realtime data. we present techniques for selecting data types and managing data contracts based on different pricing models, quality of data and incentive models. We design our marketplace by leveraging different data transferring platforms to enable an open and scalable communication mechanism between sellers (data service providers) and buyers (data service consumers) through a set of communication APIs</p>
 
+<!--
 <pre><code>$ cd your_repo_root/repo_name
 $ git fetch origin
 $ git checkout gh-pages
 </code></pre>
+-->
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p><img src="http://dungcao.github.io/realmarket/images/TrafficScenario.png" alt="Traffic Scenario"></p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<p>The use of different real-time data sources in the context of a smart city is a typical example. Traffic congestion is a challenging problem that many big cities around the world are trying to solve. In order to have a good solution for this problem, the current state of traffic at any location in a city and at any time needs to be closely monitored. Traffic information can be retrieved from many different sources, such as traffic and surveillance cameras, GPS signals from GPS enabled devices on cars, buses and mobile phones, and on road pressure sensors. The data sets collected from these sources
+originally exist in its own format, and are constantly forwarded to corresponding processing centers. They need to be converted to usable traffic information and integrated together to form a unified source of traffic data. In turn, the traffic data set retrieved from the above process is provided to its intended consumers such as government agencies, police departments, and the public in real-time.</p>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p><img src="http://dungcao.github.io/realmarket/images/market_model.png" alt="Architecture"></p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<p>In our general design of the marketplace for real-time IoT data,
+four stakeholders, which are data broker, payment controller, quality controller and manager, are mapped to the correspondent services of the marketplace, i.e., Service Discovery, Billing, Quality Analysis and Management which also manages the needed models for data contract such as pricing model, quality of data model, device description model, etc. We design Data Processor stakeholder as a set of services developed by marketplace owner or third parties. To enable the technology infrastructure for transferring data, a set of Real-Time Data Bus which plays the role of transporters is proposed as the services outside the marketplace. This allows us to profit the current IoT platforms (e.g., Xively [2013]) or Data Distribution Service middlewares [OMG 2007; Al-madani et al. 2013] as the data buses. Moreover, this also increases the opportunity of providers and/or consumers to choose the familiar/trusted protocol for their exchange. However, this design raises a list of APIs which allows the data buses to interact with marketplace to update the data status to marketplace.</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
 
 <h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Prototype</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p><img src="http://dungcao.github.io/realmarket/images/prototype.png" alt="Prototype"></p>
+
+<p>In our prototype, we implemented fully two basic services for data service description management, cost management. Although we do not focus on quality of data, however to prove the realtime capability of our proposition, we also implemented a part of quality analysis service, i.e., latency analytic that allows us to measure the near real-time capacity of databuses. We have implemented our marketplace APIs, which is used to force the pricing model and support the latency analytic, using Web services 3 to interface to different platforms for transferring data, including Moquette 4 , Mosquitto 5 and Xively
+IoT platform [Xively 2013] as the realtime databuses. We used these brokers because they implemented a lightweight broker-based publish/subscribe messaging protocol, i.e., MQTT 6 (Message Queuing Telemetry Transport). Figure 8 shows our prototype.</p>
+
+<h3>
+<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Code compilation and installation</h3>
+
+<p>This section shows how to compile our source code and run the experiments</p>
+
+
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Contact</h3>
+
+<p>For any query or issue, please contact <a href="mailto:dung.cao@ttu.edu.vn">dung.cao@ttu.edu.vn</a></p>
         </section>
 
         <aside id="sidebar">
