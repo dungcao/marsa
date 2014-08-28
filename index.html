@@ -13,7 +13,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Realmarket by dungcao</title>
+    <title>Aserda by dungcao</title>
   </head>
 
   <body>
@@ -21,7 +21,7 @@
       <div class="inner">
         <h1>ASERDA</h1>
         <h2>A Marketplace for Realtime Human-Sensing Data</h2>
-        <a href="https://github.com/dungcao/realmarket" class="button"><small>View project on</small>GitHub</a>
+        <a href="https://github.com/dungcao/aserda" class="button"><small>View project on</small>GitHub</a>
       </div>
     </header>
 
@@ -40,12 +40,12 @@ $ git checkout gh-pages
 </code></pre>
 -->
 
-<p><img src="http://dungcao.github.io/realmarket/images/TrafficScenario.png" alt="Traffic Scenario"></p>
+<p><img src="images/TrafficScenario.png" alt="Traffic Scenario"></p>
 
 <p>The use of different real-time data sources in the context of a smart city is a typical example. Traffic congestion is a challenging problem that many big cities around the world are trying to solve. In order to have a good solution for this problem, the current state of traffic at any location in a city and at any time needs to be closely monitored. Traffic information can be retrieved from many different sources, such as traffic and surveillance cameras, GPS signals from GPS enabled devices on cars, buses and mobile phones, and on road pressure sensors. The data sets collected from these sources
 originally exist in its own format, and are constantly forwarded to corresponding processing centers. They need to be converted to usable traffic information and integrated together to form a unified source of traffic data. In turn, the traffic data set retrieved from the above process is provided to its intended consumers such as government agencies, police departments, and the public in real-time.</p>
 
-<p><img src="http://dungcao.github.io/realmarket/images/market_model.png" alt="Architecture"></p>
+<p><img src="images/market_model.png" alt="Architecture"></p>
 
 <p>In our general design of the marketplace for real-time IoT data,
 four stakeholders, which are data broker, payment controller, quality controller and manager, are mapped to the correspondent services of the marketplace, i.e., Service Discovery, Billing, Quality Analysis and Management which also manages the needed models for data contract such as pricing model, quality of data model, device description model, etc. We design Data Processor stakeholder as a set of services developed by marketplace owner or third parties. To enable the technology infrastructure for transferring data, a set of Real-Time Data Bus which plays the role of transporters is proposed as the services outside the marketplace. This allows us to profit the current IoT platforms (e.g., Xively [2013]) or Data Distribution Service middlewares [OMG 2007; Al-madani et al. 2013] as the data buses. Moreover, this also increases the opportunity of providers and/or consumers to choose the familiar/trusted protocol for their exchange. However, this design raises a list of APIs which allows the data buses to interact with marketplace to update the data status to marketplace.</p>
@@ -54,7 +54,7 @@ four stakeholders, which are data broker, payment controller, quality controller
 <h3>
 <a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Prototype</h3>
 
-<p><img src="http://dungcao.github.io/realmarket/images/prototype.png" alt="Prototype"></p>
+<p><img src="images/prototype.png" alt="Prototype"></p>
 
 <p>In our prototype, we implemented fully two basic services for data service description management, cost management. Although we do not focus on quality of data, however to prove the realtime capability of our proposition, we also implemented a part of quality analysis service, i.e., latency analytic that allows us to measure the near real-time capacity of databuses. We have implemented our marketplace APIs, which is used to force the pricing model and support the latency analytic, using Web services 3 to interface to different platforms for transferring data, including Moquette 4 , Mosquitto 5 and Xively
 IoT platform [Xively 2013] as the realtime databuses. We used these brokers because they implemented a lightweight broker-based publish/subscribe messaging protocol, i.e., MQTT 6 (Message Queuing Telemetry Transport). Figure 8 shows our prototype.</p>
@@ -72,16 +72,16 @@ IoT platform [Xively 2013] as the realtime databuses. We used these brokers beca
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/dungcao/realmarket/zipball/master" class="button">
+          <a href="https://github.com/dungcao/aserda/zipball/master" class="button">
             <small>Download</small>
             .zip file
           </a>
-          <a href="https://github.com/dungcao/realmarket/tarball/master" class="button">
+          <a href="https://github.com/dungcao/aserda/tarball/master" class="button">
             <small>Download</small>
             .tar.gz file
           </a>
 
-          <p class="repo-owner"><a href="https://github.com/dungcao/realmarket"></a> is maintained by <a href="https://github.com/dungcao">dungcao</a>.</p>
+          <p class="repo-owner"><a href="https://github.com/dungcao/aserda"></a> is maintained by <a href="https://github.com/dungcao">dungcao</a>.</p>
 
           <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         </aside>
