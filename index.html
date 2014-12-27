@@ -58,7 +58,7 @@ $ git checkout gh-pages
 <h3><a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Realtime human-sensing data marketplace</h3>
 
 <p>In our general design of the marketplace for real-time IoT data,
-four stakeholders, which are data broker, payment controller, quality controller and manager, are mapped to the correspondent services of the marketplace, i.e., Service Discovery, Billing, Quality Analysis and Management which also manages the needed models for data contract such as pricing model, quality of data model, device description model, etc. We design Data Processor stakeholder as a set of services developed by marketplace owner or third parties. To enable the technology infrastructure for transferring data, a set of Real-Time Data Bus which plays the role of transporters is proposed as the services outside the marketplace. This allows us to profit the current IoT platforms (e.g., Xively [2013]) or Data Distribution Service middlewares [OMG 2007; Al-madani et al. 2013] as the data buses. Moreover, this also increases the opportunity of providers and/or consumers to choose the familiar/trusted protocol for their exchange. However, this design raises a list of APIs which allows the data buses to interact with marketplace to update the data status to marketplace.</p>
+four stakeholders, which are data broker, payment controller, quality controller and manager, are mapped to the correspondent services of the marketplace, i.e., Service Discovery, Billing, Quality Analysis and Management which also manages the needed models for data contract such as pricing model, quality of data model, device description model, etc. We design Data Processor stakeholder as a set of services developed by marketplace owner or third parties. To enable the technology infrastructure for transferring data, a set of Real-Time Data Bus which plays the role of transporters is proposed as the services outside the marketplace. This allows us to profit the current IoT platforms (e.g., <a  href="https://xively.com/whats_xively">Xively</a>) or Data Distribution Service middlewares as the data buses. Moreover, this also increases the opportunity of providers and/or consumers to choose the familiar/trusted protocol for their exchange. However, this design raises a list of APIs which allows the data buses to interact with marketplace to update the data status to marketplace.</p>
 
 <p>
 <figure>
@@ -88,8 +88,23 @@ In our prototype, we implemented fully two basic services for Data Discovery and
 <h3>
 <a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Code compilation and installation</h3>
 
-<p>This section shows how to compile our source code and run the experiments</p>
+Requirements
+<ol>
+  <li> Maven 2 or 3
+  <li> JDK 1.7+
+  <li> MySQL 5.0+
+  <li> Tomcat 7
+</ol>
 
+<p>The maven project of the source code is fetched from github repository and built by jdk v1.7. After building the project, following artifacts are created<p/> 
+<ol>
+  <li> marketplace.war and pricing.war are deployed in Tomcat container.
+  <li> marketplace.sql is inport into local MySQL server.
+  <li> agence.jar is running on distributed VM to sumulate the seller and buyer.
+</ol>
+
+After the deployment, the web interface of the marketplace can be accessed via URL: http://localhost/marketplace/default. The localhost can be changed to the right IP address.
+ 
 
 <h3>
 <a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Contact</h3>
