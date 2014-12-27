@@ -42,26 +42,48 @@ $ git checkout gh-pages
 
 <p>
 <figure>
-<img src="images/TraficScenario2.png" alt="Traffic Scenario">
+ <img src="images/TraficScenario2.png" alt="Traffic Scenario">
  <figcaption>Trafic scenario</figcaption>
 </p>
 
-<p>The use of different real-time data sources in the context of a smart city is a typical example. Traffic congestion is a challenging problem that many big cities around the world are trying to solve. In order to have a good solution for this problem, the current state of traffic at any location in a city and at any time needs to be closely monitored. Traffic information can be retrieved from many different sources, such as traffic and surveillance cameras, GPS signals from GPS enabled devices on cars, buses and mobile phones, and on road pressure sensors. The data sets collected from these sources
-originally exist in its own format, and are constantly forwarded to corresponding processing centers. They need to be converted to usable traffic information and integrated together to form a unified source of traffic data. In turn, the traffic data set retrieved from the above process is provided to its intended consumers such as government agencies, police departments, and the public in real-time.</p>
+<p>The use of different real-time data sources in the context of a smart city is a typical example. Traffic congestion is a challenging problem that many big cities around the world are trying to solve. In order to have a good solution for this problem, the current state of traffic at any location in a city and at any time needs to be closely monitored. Traffic information can be retrieved from many different sources, such as traffic and surveillance cameras, GPS signals from GPS enabled devices on cars, buses and mobile phones, and on road pressure sensors. The data sets collected from these sources originally exist in its own format, and are constantly forwarded to corresponding processing centers. They need to be converted to usable traffic information and integrated together to form a unified source of traffic data. In turn, the traffic data set retrieved from the above process is provided to its intended consumers such as government agencies, police departments, and the public in real-time.</p>
 
-<p><img src="images/market_model.png" alt="Architecture"></p>
+<p>
+<figure>
+ <img src="images/market_model.png" alt="Architecture">
+ <figcaption>MARSA architecture</figcaption>
+</figure>
+</p>
+
+<h3><a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Realtime human-sensing data marketplace</h3>
 
 <p>In our general design of the marketplace for real-time IoT data,
 four stakeholders, which are data broker, payment controller, quality controller and manager, are mapped to the correspondent services of the marketplace, i.e., Service Discovery, Billing, Quality Analysis and Management which also manages the needed models for data contract such as pricing model, quality of data model, device description model, etc. We design Data Processor stakeholder as a set of services developed by marketplace owner or third parties. To enable the technology infrastructure for transferring data, a set of Real-Time Data Bus which plays the role of transporters is proposed as the services outside the marketplace. This allows us to profit the current IoT platforms (e.g., Xively [2013]) or Data Distribution Service middlewares [OMG 2007; Al-madani et al. 2013] as the data buses. Moreover, this also increases the opportunity of providers and/or consumers to choose the familiar/trusted protocol for their exchange. However, this design raises a list of APIs which allows the data buses to interact with marketplace to update the data status to marketplace.</p>
+
+<p>
+<figure>
+ <img src="images/stakeholders.png" alt="Stakeholders">
+ <figcaption>Stakeholders of the marketplace</figcaption>
+</figure>
+</p>
+
 
 
 <h3>
 <a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Prototype</h3>
 
-<p><img src="images/prototype.png" alt="Prototype"></p>
+<p>
+<figure>
+ <img src="images/prototype.png" alt="Prototype">
+ <figcaption>Prototype</figcaption>
+</figure>
+</p>
 
-<p>In our prototype, we implemented fully two basic services for data service description management, cost management. Although we do not focus on quality of data, however to prove the realtime capability of our proposition, we also implemented a part of quality analysis service, i.e., latency analytic that allows us to measure the near real-time capacity of databuses. We have implemented our marketplace APIs, which is used to force the pricing model and support the latency analytic, using Web services 3 to interface to different platforms for transferring data, including Moquette 4 , Mosquitto 5 and Xively
-IoT platform [Xively 2013] as the realtime databuses. We used these brokers because they implemented a lightweight broker-based publish/subscribe messaging protocol, i.e., MQTT 6 (Message Queuing Telemetry Transport). Figure 8 shows our prototype.</p>
+<p>
+In our prototype, we implemented fully two basic services for Data Discovery and Cost Model Management. To prove the realtime capability of our proposition, we also implemented, as a part of Data Quality Analysis service, an latency analytics that allows us to measure the near realtime capacity of databuses. We have implemented our marketplace APIs, which are used to enforce the cost model and support the latency analytic, using Web services to interface to different platforms for transferring data, including <a href="http://mosquitto.org/">Mosquitto</a> and <a  href="https://xively.com/whats_xively">Xively IoT</a> platform as the realtime databuses. We used these brokers because they implemented a lightweight broker-based publish/subscribe messaging protocol, i.e., MQTT5.
+</p>
+
+
 
 <h3>
 <a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Code compilation and installation</h3>
@@ -94,4 +116,4 @@ IoT platform [Xively 2013] as the realtime databuses. We used these brokers beca
 
   
   </body>
-</html>
+<s/html>
